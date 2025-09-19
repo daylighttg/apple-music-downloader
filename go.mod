@@ -1,6 +1,6 @@
 module main
 
-go 1.21
+go 1.23.1
 
 require (
 	github.com/Eyevinn/mp4ff v0.46.0
