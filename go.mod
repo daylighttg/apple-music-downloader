@@ -1,24 +1,26 @@
 module main
 
-go 1.23.1
+go 1.21
 
 require (
 	github.com/Eyevinn/mp4ff v0.46.0
-	github.com/aead/cmac v0.0.0-20160719120800-7af84192f0b1
+	github.com/abema/go-mp4 v1.4.1
+	github.com/fatih/color v1.18.0
 	github.com/gospider007/requests v0.0.0-20250114011338-9562a203fa04
 	github.com/grafov/m3u8 v0.11.1
+	github.com/olekukonko/tablewriter v0.0.5
 	github.com/schollz/progressbar/v3 v3.14.6
 	github.com/spf13/pflag v1.0.5
+	github.com/zhaarey/go-mp4tag v0.0.0-20250210094042-22578afc09bf
 	google.golang.org/protobuf v1.36.2
-	lukechampine.com/frand v1.5.1
-    github.com/abema/go-mp4 v1.4.1
+	gopkg.in/yaml.v2 v2.2.8
 )
 
 require (
-	github.com/PuerkitoBio/goquery v1.10.1 // indirect
-	github.com/STARRY-S/zip v0.2.1 // indirect
+	github.com/aead/cmac v0.0.0-20160719120800-7af84192f0b1 // indirect
 	github.com/andybalholm/brotli v1.1.1 // indirect
 	github.com/andybalholm/cascadia v1.3.3 // indirect
+	github.com/beevik/etree v1.3.0 // indirect
 	github.com/bodgit/plumbing v1.3.0 // indirect
 	github.com/bodgit/sevenzip v1.6.0 // indirect
 	github.com/bodgit/windows v1.0.1 // indirect
@@ -36,8 +38,8 @@ require (
 	github.com/gospider007/bs4 v0.0.0-20241216122612-aa3f29179e6f // indirect
 	github.com/gospider007/gson v0.0.0-20241216122450-fb66d0ba2a07 // indirect
 	github.com/gospider007/gtls v0.0.0-20250107100054-2a14fa6fc9c5 // indirect
-    github.com/gospider007/http2 v0.0.0-20250107095809-0f8c60040d4a // indirect
-    github.com/gospider007/http3 v0.0.0-20250107095941-a36b210aca37 // indirect
+	github.com/gospider007/http2 v0.0.0-20250107095809-0f8c60040d4a // indirect
+	github.com/gospider007/http3 v0.0.0-20250107095941-a36b210aca37 // indirect
 	github.com/gospider007/ja3 v0.0.0-20250107091445-e294e50de314 // indirect
 	github.com/gospider007/kinds v0.0.0-20240929092451-8f867acde255 // indirect
 	github.com/gospider007/re v0.0.0-20241216142712-efbef8d55ea2 // indirect
@@ -47,16 +49,13 @@ require (
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
 	github.com/klauspost/compress v1.17.11 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.9 // indirect
 	github.com/klauspost/pgzip v1.2.6 // indirect
-	github.com/kr/pretty v0.2.1 // indirect
 	github.com/libdns/libdns v0.2.2 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.9 // indirect
-	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
 	github.com/mholt/acmez/v3 v3.0.0 // indirect
 	github.com/mholt/archives v0.1.0 // indirect
 	github.com/miekg/dns v1.1.62 // indirect
@@ -66,11 +65,11 @@ require (
 	github.com/nwaples/rardecode/v2 v2.0.1 // indirect
 	github.com/onsi/ginkgo/v2 v2.22.2 // indirect
 	github.com/pierrec/lz4/v4 v4.1.22 // indirect
-	github.com/quic-go/qpack v0.5.1 // indirect
 	github.com/quic-go/quic-go v0.48.2 // indirect
 	github.com/refraction-networking/uquic v0.0.6 // indirect
 	github.com/refraction-networking/utls v1.6.7 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/STARRY-S/zip v0.2.1 // indirect
 	github.com/sorairolake/lzip-go v0.3.5 // indirect
 	github.com/therootcompany/xz v1.0.1 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
@@ -95,15 +94,15 @@ require (
 	golang.org/x/term v0.28.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
 	golang.org/x/tools v0.29.0 // indirect
+	lukechampine.com/frand v1.5.1 // indirect
 )
 
-require (
-	github.com/AlecAivazis/survey/v2 v2.3.7
-	github.com/beevik/etree v1.3.0
-	github.com/fatih/color v1.18.0
-	github.com/olekukonko/tablewriter v0.0.5
-	github.com/zhaarey/go-mp4tag v0.0.0-20250210094042-22578afc09bf
-	gopkg.in/yaml.v2 v2.2.8
-    github.com/gospider007/http2 v0.0.0-20250107095809-0f8c60040d4a => github.com/gospider007/http2 v0.0.0-20241127071022-36505897d32c
-    github.com/gospider007/http3 v0.0.0-20250107095941-a36b210aca37 => github.com/gospider007/http3 v0.0.0-20241127071022-36505897d32c
+exclude (
+	github.com/gospider007/http2 v0.0.0-20250107095809-0f8c60040d4a
+	github.com/gospider007/http3 v0.0.0-20250107095941-a36b210aca37
+)
+
+replace (
+	github.com/gospider007/http2 v0.0.0-20250107095809-0f8c60040d4a => golang.org/x/net v0.17.0
+	github.com/gospider007/http3 v0.0.0-20250107095941-a36b210aca37 => github.com/quic-go/quic-go v0.40.0
 )
