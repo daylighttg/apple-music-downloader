@@ -62,25 +62,29 @@ func getPSSH(contentId string, kidBase64 string) (string, error) {
 	pssh := base64.StdEncoding.EncodeToString(widevineCenc)
 	return pssh, nil
 }
-func BeforeRequest(cl *requests.Client, preCtx context.Context, method string, href string, options ...requests.RequestOption) (resp *requests.Response, err error) {
-	data := options[0].Data
-	jsondata := map[string]interface{}{
-		"challenge":      base64.StdEncoding.EncodeToString(data.([]byte)),
-		"key-system":     "com.widevine.alpha",
-		"uri":            "data:;base64," + preCtx.Value("pssh").(string),
-		"adamId":         preCtx.Value("adamId").(string),
-		"isLibrary":      false,
-		"user-initiated": true,
-	}
-	options[0].Data = nil
-	options[0].Json = jsondata
-	resp, err = cl.Request(preCtx, method, href, options...)
-	if err != nil {
-		fmt.Println(err)
-	}
+func BeforeRequest(client *req.Client, preCtx context.Context, method string, href string, body []byte) (*req.Response, error) {
+    jsondata := map[string]interface{}{
+        "challenge":      base64.StdEncoding.EncodeToString(body),
+        "key-system":     "com.widevine.alpha",
+        "uri":            "data:;base64," + preCtx.Value("pssh").(string),
+        "adamId":         preCtx.Value("adamId").(string),
+        "isLibrary":      false,
+        "user-initiated": true,
+    }
 
-	return
+    resp, err := client.R().
+        SetContext(preCtx).
+        SetHeader("Content-Type", "application/json").
+        SetBodyJsonMarshal(jsondata).
+        Send(method, href)
+
+    if err != nil {
+        fmt.Println("BeforeRequest error:", err)
+        return nil, err
+    }
+    return resp, nil
 }
+
 func AfterRequest(Response *requests.Response) ([]byte, error) {
 	var ResponseData PlaybackLicense
 	_, err := Response.Json(&ResponseData)
