@@ -66,5 +66,6 @@ exclude (
 )
 
 replace (
-	github.com/gospider007/requests => github.com/imroc/req/v3 v3.55.0
+    github.com/gospider007/requests => github.com/imroc/req/v3 v3.55.0
 )
+
