@@ -65,7 +65,5 @@ exclude (
 	github.com/gospider007/gtls v0.0.0-20241115000000-000000000000
 )
 
-replace (
-    github.com/gospider007/requests => github.com/imroc/req/v3 v3.55.0
-)
+
 
