@@ -14,6 +14,11 @@ require (
 	github.com/zhaarey/go-mp4tag v0.0.0-20250210094042-22578afc09bf
 	google.golang.org/protobuf v1.36.2
 	gopkg.in/yaml.v2 v2.2.8
+    github.com/abema/go-mp4 v1.4.1
+    github.com/schollz/progressbar/v3 v3.14.6
+    github.com/mattn/go-isatty v0.0.20
+    golang.org/x/term v0.25.0 // (or latest at time of fetch)
+    golang.org/x/sys v0.25.0  // (or latest at time of fetch)
 )
 
 require (
