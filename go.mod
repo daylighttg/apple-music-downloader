@@ -60,7 +60,7 @@ require (
 exclude (
 	github.com/gospider007/http2 v0.0.0-20250107095809-0f8c60040d4a
 	github.com/gospider007/http3 v0.0.0-20250107095941-a36b210aca37
-	github.com/gospider007/requests v0.0.0-20250114011338-9562a203fa04
+	github.com/imroc/req/v3 v3.55.0
 	github.com/gospider007/gtls v0.0.0-20250107100054-2a14fa6fc9c5
 	github.com/gospider007/gtls v0.0.0-20241115000000-000000000000
 )
