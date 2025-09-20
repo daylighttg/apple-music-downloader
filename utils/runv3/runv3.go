@@ -218,7 +218,7 @@ func extractKidBase64(b string, mvmode bool) (string, string, error) {
 	return kidbase64, urlBuilder.String(), nil
 }
 func extsong(b string) bytes.Buffer {
-	resp, err := http.Get(b)
+	resp, err := req.Get(url)
 	if err != nil {
 		fmt.Printf("下载文件失败: %v\n", err)
 	}
@@ -274,9 +274,8 @@ func Run(adamId string, trackpath string, authtoken string, mutoken string, mvmo
 		"authorization":            "Bearer " + authtoken,
 		"x-apple-music-user-token": mutoken,
 	}
-	client, _ := requests.NewClient(nil, requests.ClientOption{
-		Headers: headers,
-	})
+     client := req.C().SetCommonHeaders(headers)
+
 	key := key.Key{
 		ReqCli:        client,
 		BeforeRequest: BeforeRequest,
