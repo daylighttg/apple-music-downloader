@@ -6,7 +6,7 @@ require (
 	github.com/Eyevinn/mp4ff v0.46.0
 	github.com/abema/go-mp4 v1.4.1
 	github.com/fatih/color v1.18.0
-	github.com/gospider007/requests v0.0.0-20241201000000-000000000000
+	github.com/gospider007/requests v0.0.0-20241115000000-000000000000
 	github.com/grafov/m3u8 v0.11.1
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/schollz/progressbar/v3 v3.14.6
@@ -37,14 +37,14 @@ require (
 	github.com/gospider007/blog v0.0.0-20241205091827-6bcaf48620d4 // indirect
 	github.com/gospider007/bs4 v0.0.0-20241216122612-aa3f29179e6f // indirect
 	github.com/gospider007/gson v0.0.0-20241216122450-fb66d0ba2a07 // indirect
-	github.com/gospider007/gtls v0.0.0-20240827084406-3daae5751f64 // indirect
-	github.com/gospider007/http2 v0.0.0-20240827084310-5d7e9a15e026 // indirect
-	github.com/gospider007/http3 v0.0.0-20240827084329-7e208c4ae32c // indirect
-	github.com/gospider007/ja3 v0.0.0-20250107091445-e294e50de314 // indirect
+	github.com/gospider007/gtls v0.0.0-20241115000000-000000000000 // indirect
+	github.com/gospider007/http2 v0.0.0-20241115000000-000000000000 // indirect
+	github.com/gospider007/http3 v0.0.0-20241115000000-000000000000 // indirect
+	github.com/gospider007/ja3 v0.0.0-20241115000000-000000000000 // indirect
 	github.com/gospider007/kinds v0.0.0-20240929092451-8f867acde255 // indirect
 	github.com/gospider007/re v0.0.0-20241216142712-efbef8d55ea2 // indirect
 	github.com/gospider007/tools v0.0.0-20241115000000-000000000000 // indirect
-	github.com/gospider007/websocket v0.0.0-20250107091829-c78035a103b2 // indirect
+	github.com/gospider007/websocket v0.0.0-20241115000000-000000000000 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
@@ -104,7 +104,7 @@ exclude (
 )
 
 replace (
-	github.com/gospider007/http2 v0.0.0-20250107095809-0f8c60040d4a => github.com/gospider007/http2 v0.0.0-20240827084310-5d7e9a15e026
-	github.com/gospider007/http3 v0.0.0-20250107095941-a36b210aca37 => github.com/gospider007/http3 v0.0.0-20240827084329-7e208c4ae32c
-	github.com/gospider007/requests v0.0.0-20250114011338-9562a203fa04 => github.com/gospider007/requests v0.0.0-20241201000000-000000000000
+	github.com/gospider007/http2 => golang.org/x/net v0.34.0
+	github.com/gospider007/http3 => github.com/quic-go/quic-go v0.48.2
+	github.com/gospider007/requests => github.com/imroc/req/v3 v3.55.0
 )
