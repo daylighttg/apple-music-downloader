@@ -31,6 +31,7 @@ import (
 	"github.com/fatih/color"
 	"github.com/grafov/m3u8"
 	"github.com/olekukonko/tablewriter"
+	"github.com/olekukonko/tablewriter/tw"
 	"github.com/spf13/pflag"
 
 	"github.com/zhaarey/go-mp4tag"
@@ -253,20 +254,10 @@ func checkArtist(artistUrl string, token string, relationship string) ([]string,
 
 	table := tablewriter.NewWriter(os.Stdout)
 	if relationship == "albums" {
-		table.SetHeader([]string{"", "Album Name", "Date", "Album ID"})
+		table.Header("", "Album Name", "Date", "Album ID")
 	} else if relationship == "music-videos" {
-		table.SetHeader([]string{"", "MV Name", "Date", "MV ID"})
+		table.Header("", "MV Name", "Date", "MV ID")
 	}
-	table.SetRowLine(false)
-	table.SetHeaderColor(tablewriter.Colors{},
-		tablewriter.Colors{tablewriter.FgRedColor, tablewriter.Bold},
-		tablewriter.Colors{tablewriter.Bold, tablewriter.FgBlackColor},
-		tablewriter.Colors{tablewriter.Bold, tablewriter.FgBlackColor})
-
-	table.SetColumnColor(tablewriter.Colors{tablewriter.FgCyanColor},
-		tablewriter.Colors{tablewriter.Bold, tablewriter.FgRedColor},
-		tablewriter.Colors{tablewriter.Bold, tablewriter.FgBlackColor},
-		tablewriter.Colors{tablewriter.Bold, tablewriter.FgBlackColor})
 	for i, v := range options {
 		urls = append(urls, v[3])
 		options[i] = append([]string{fmt.Sprint(i + 1)}, v[:3]...)
@@ -2390,12 +2381,17 @@ func extractMedia(b string, more_mode bool) (string, string, error) {
 		for _, variant := range master.Variants {
 			data = append(data, []string{variant.Codecs, variant.Audio, fmt.Sprint(variant.Bandwidth)})
 		}
-		table := tablewriter.NewWriter(os.Stdout)
-		table.SetHeader([]string{"Codec", "Audio", "Bandwidth"})
-		table.SetAutoMergeCells(true)
-		table.SetRowLine(true)
-		table.AppendBulk(data)
-		table.Render()
+		table := tablewriter.NewTable(os.Stdout,
+			tablewriter.WithRowMergeMode(tw.MergeHorizontal),
+			tablewriter.WithRendition(tw.Rendition{
+				Settings: tw.Settings{
+					Separators: tw.Separators{BetweenRows: tw.On},
+				},
+			}),
+		)
+		table.Header("Codec", "Audio", "Bandwidth")
+		_ = table.Bulk(data)
+		_ = table.Render()
 
 		var hasAAC, hasLossless, hasHiRes, hasAtmos, hasDolbyAudio bool
 		var aacQuality, losslessQuality, hiResQuality, atmosQuality, dolbyAudioQuality string
